@@ -19,3 +19,20 @@ This repository will be built incrementally using TDD. The goal is to create a m
 - Deterministic seed script for 10,000 employees
 - Small commits that show the solution evolving through TDD
 - Notes on architecture, trade-offs, performance, and AI usage
+
+## Backend Setup
+
+```bash
+python -m venv .venv
+.venv/Scripts/python -m pip install -r backend/requirements.txt
+.venv/Scripts/python backend/manage.py migrate
+.venv/Scripts/python backend/manage.py runserver
+```
+
+Run backend tests:
+
+```bash
+.venv/Scripts/python -m pytest backend
+```
+
+The API is mounted under `http://localhost:8000/api/`.
