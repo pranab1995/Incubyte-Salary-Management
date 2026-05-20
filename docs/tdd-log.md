@@ -23,3 +23,7 @@ Green: The existing DRF `ModelViewSet` already supported these flows, so no prod
 Red: Added tests for country-level salary summary and job-title average salary within a country.
 
 Green: Implemented a salary insights endpoint backed by Django ORM aggregate queries.
+
+## 5. Frontend Salary Formatting
+
+Red: Added an Angular unit test for salary display formatting.
