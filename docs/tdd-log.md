@@ -21,3 +21,5 @@ Green: The existing DRF `ModelViewSet` already supported these flows, so no prod
 ## 4. Salary Insights API
 
 Red: Added tests for country-level salary summary and job-title average salary within a country.
+
+Green: Implemented a salary insights endpoint backed by Django ORM aggregate queries.
