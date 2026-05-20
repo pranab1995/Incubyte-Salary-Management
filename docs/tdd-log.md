@@ -9,3 +9,5 @@ Before writing production code, I captured the product scope, user persona, stac
 ## 2. Employee Creation API
 
 Red: Added a DRF API test that describes how an HR manager creates an employee with the required salary management fields.
+
+Green: Added the initial Django project, employee model, serializer, router, and migration needed to create employees through the API.
