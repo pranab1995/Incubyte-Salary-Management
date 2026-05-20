@@ -23,16 +23,17 @@ This repository will be built incrementally using TDD. The goal is to create a m
 ## Backend Setup
 
 ```bash
-python -m venv .venv
-.venv/Scripts/python -m pip install -r backend/requirements.txt
-.venv/Scripts/python backend/manage.py migrate
-.venv/Scripts/python backend/manage.py runserver
+cd backend
+pipenv install --dev
+pipenv run python manage.py migrate
+pipenv run python manage.py runserver
 ```
 
 Run backend tests:
 
 ```bash
-.venv/Scripts/python -m pytest backend
+cd backend
+pipenv run pytest
 ```
 
 The API is mounted under `http://localhost:8000/api/`.

@@ -46,3 +46,7 @@ Employee fields planned for the first version:
 ## AI Usage Intent
 
 AI will be used as a collaborator for planning, scaffolding suggestions, test ideas, and review. The implementation will be reviewed and committed in small slices so the evolution remains understandable.
+
+## Environment Choice
+
+Pipenv is used for backend dependency management because it keeps runtime and development dependencies explicit in a workflow I am comfortable maintaining.
