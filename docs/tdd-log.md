@@ -17,3 +17,7 @@ Green: Added the initial Django project, employee model, serializer, router, and
 Red: Added tests for viewing the employee list, updating salary, and deleting an employee.
 
 Green: The existing DRF `ModelViewSet` already supported these flows, so no production code was needed. The tests now lock the expected behavior in place.
+
+## 4. Salary Insights API
+
+Red: Added tests for country-level salary summary and job-title average salary within a country.
