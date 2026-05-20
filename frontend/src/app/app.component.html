@@ -1,0 +1,150 @@
+<main class="shell">
+  <section class="masthead">
+    <div>
+      <p class="eyebrow">Salary Management</p>
+      <h1>HR compensation workspace</h1>
+      <p class="subtext">Manage employee salary records and inspect country-level salary signals.</p>
+    </div>
+    <div class="stat">
+      <span>Total employees</span>
+      <strong>{{ totalEmployees }}</strong>
+    </div>
+  </section>
+
+  <section class="workspace">
+    <form class="panel form-panel" [formGroup]="employeeForm" (ngSubmit)="addEmployee()">
+      <div class="panel-heading">
+        <div>
+          <p class="eyebrow">Employee</p>
+          <h2>Add employee</h2>
+        </div>
+      </div>
+
+      <label>
+        Full name
+        <input formControlName="full_name" placeholder="Ananya Sharma">
+      </label>
+
+      <label>
+        Email
+        <input formControlName="email" placeholder="ananya.sharma@example.com">
+      </label>
+
+      <div class="grid-two">
+        <label>
+          Job title
+          <input formControlName="job_title" placeholder="Senior Software Engineer">
+        </label>
+        <label>
+          Department
+          <input formControlName="department" placeholder="Engineering">
+        </label>
+      </div>
+
+      <div class="grid-two">
+        <label>
+          Country
+          <input formControlName="country">
+        </label>
+        <label>
+          Salary
+          <input formControlName="salary">
+        </label>
+      </div>
+
+      <div class="grid-two">
+        <label>
+          Employment
+          <select formControlName="employment_type">
+            <option value="FULL_TIME">Full time</option>
+            <option value="PART_TIME">Part time</option>
+            <option value="CONTRACT">Contract</option>
+            <option value="INTERN">Intern</option>
+          </select>
+        </label>
+        <label>
+          Hire date
+          <input type="date" formControlName="hire_date">
+        </label>
+      </div>
+
+      <button class="primary" type="submit">Add employee</button>
+      <p class="feedback" *ngIf="feedback">{{ feedback }}</p>
+    </form>
+
+    <section class="panel">
+      <div class="panel-heading">
+        <div>
+          <p class="eyebrow">Insights</p>
+          <h2>Salary summary</h2>
+        </div>
+      </div>
+
+      <form class="insight-query" [formGroup]="insightsForm" (ngSubmit)="loadInsights()">
+        <label>
+          Country
+          <input formControlName="country">
+        </label>
+        <label>
+          Job title
+          <input formControlName="job_title" placeholder="Optional">
+        </label>
+        <button class="secondary" type="submit">Refresh</button>
+      </form>
+
+      <div class="metrics" *ngIf="insights">
+        <article>
+          <span>Employees</span>
+          <strong>{{ insights.employee_count }}</strong>
+        </article>
+        <article>
+          <span>Minimum</span>
+          <strong>{{ formatSalary(insights.minimum_salary) }}</strong>
+        </article>
+        <article>
+          <span>Maximum</span>
+          <strong>{{ formatSalary(insights.maximum_salary) }}</strong>
+        </article>
+        <article>
+          <span>Average</span>
+          <strong>{{ formatSalary(insights.average_salary) }}</strong>
+        </article>
+      </div>
+    </section>
+  </section>
+
+  <section class="panel table-panel">
+    <div class="panel-heading">
+      <div>
+        <p class="eyebrow">Directory</p>
+        <h2>Employees</h2>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Country</th>
+            <th>Department</th>
+            <th>Salary</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employees">
+            <td>
+              <strong>{{ employee.full_name }}</strong>
+              <span>{{ employee.email }}</span>
+            </td>
+            <td>{{ employee.job_title }}</td>
+            <td>{{ employee.country }}</td>
+            <td>{{ employee.department }}</td>
+            <td>{{ formatSalary(employee.salary) }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>

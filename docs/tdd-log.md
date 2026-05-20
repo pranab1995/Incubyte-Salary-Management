@@ -27,3 +27,5 @@ Green: Implemented a salary insights endpoint backed by Django ORM aggregate que
 ## 5. Frontend Salary Formatting
 
 Red: Added an Angular unit test for salary display formatting.
+
+Green: Added the first Angular UI slice with employee creation, employee list display, and salary insights.

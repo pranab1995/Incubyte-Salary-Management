@@ -37,3 +37,13 @@ pipenv run pytest
 ```
 
 The API is mounted under `http://localhost:8000/api/`.
+
+## Frontend Setup
+
+```bash
+cd frontend
+npm install
+npm start
+```
+
+The Angular app runs at `http://localhost:4200/` and proxies API calls to the Django server.
