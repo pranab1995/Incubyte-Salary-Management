@@ -1,6 +1,6 @@
-# Incubyte Salary Management
+# Salary Management System
 
-Salary management assessment for Incubyte's Software Craftsperson/Python/AI-III role.
+Salary management tool.
 
 This repository will be built incrementally using TDD. The goal is to create a minimal but usable salary management tool for an HR manager responsible for an organization of 10,000 employees.
 

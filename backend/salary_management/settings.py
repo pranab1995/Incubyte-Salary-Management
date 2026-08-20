@@ -84,7 +84,7 @@ REST_FRAMEWORK = {
 }
 
 SPECTACULAR_SETTINGS = {
-    "TITLE": "Incubyte Salary Management API",
+    "TITLE": "Salary Management API",
     "DESCRIPTION": "API for managing employees and salary insights.",
     "VERSION": "1.0.0",
     "SERVE_INCLUDE_SCHEMA": False,
