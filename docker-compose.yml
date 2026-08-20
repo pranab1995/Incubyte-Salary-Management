@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: salary_db
+      POSTGRES_USER: salary_user
+      POSTGRES_PASSWORD: salary_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgres://salary_user:salary_password@db:5432/salary_db
+      - SECRET_KEY=local-docker-dev-key
+      - DEBUG=True
+      - ALLOWED_HOSTS=*
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:

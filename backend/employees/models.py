@@ -10,14 +10,14 @@ class Employee(models.Model):
         INTERN = "INTERN", "Intern"
 
     full_name = models.CharField(max_length=120)
-    job_title = models.CharField(max_length=100)
-    country = models.CharField(max_length=80)
+    job_title = models.CharField(max_length=100, db_index=True)
+    country = models.CharField(max_length=80, db_index=True)
     salary = models.DecimalField(
         max_digits=12,
         decimal_places=2,
         validators=[MinValueValidator(0)],
     )
-    department = models.CharField(max_length=80)
+    department = models.CharField(max_length=80, db_index=True)
     employment_type = models.CharField(
         max_length=20,
         choices=EmploymentType.choices,

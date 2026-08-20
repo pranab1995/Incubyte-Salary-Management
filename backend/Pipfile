@@ -6,10 +6,18 @@ name = "pypi"
 [packages]
 django = "==5.2.7"
 djangorestframework = "==3.16.1"
+django-filter = "*"
+django-cors-headers = "*"
+drf-spectacular = "*"
+python-dotenv = "*"
+dj-database-url = "*"
+gunicorn = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 pytest = "==8.4.2"
 pytest-django = "==4.11.1"
+faker = "*"
 
 [requires]
 python_version = "3.12"

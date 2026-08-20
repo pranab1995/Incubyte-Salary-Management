@@ -20,3 +20,9 @@ class EmployeeSerializer(serializers.ModelSerializer):
             "updated_at",
         ]
         read_only_fields = ["id", "created_at", "updated_at"]
+
+    def validate_hire_date(self, value):
+        from django.utils import timezone
+        if value > timezone.now().date():
+            raise serializers.ValidationError("Hire date cannot be in the future.")
+        return value
